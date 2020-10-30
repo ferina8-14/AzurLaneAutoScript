@@ -28,8 +28,10 @@ class Screenshot(AScreenCap):
             return Image.open(BytesIO(screenshot)).convert('RGB')
         elif self._screenshot_method == 1:
             return Image.open(BytesIO(screenshot.replace(b'\r\n', b'\n'))).convert('RGB')
+            # return Image.open(BytesIO(screenshot)).convert('RGB')
         elif self._screenshot_method == 2:
             return Image.open(BytesIO(screenshot.replace(b'\r\r\n', b'\n'))).convert('RGB')
+            # return Image.open(BytesIO(screenshot)).convert('RGB')
 
     def _process_screenshot(self, screenshot):
         if self._screenshot_method_fixed:

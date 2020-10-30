@@ -9,7 +9,7 @@ from module.logger import logger
 
 
 class Connection:
-    _adb_binary = ''
+    _adb_binary = 'adb'
     adb_binary_list = [
         r'.\adb\adb.exe',
         r'.\toolkit\Lib\site-packages\adbutils\binaries\adb.exe',
@@ -57,6 +57,7 @@ class Connection:
         # Although, there's still a window when you stop running in GUI, which cause by gooey.
         # To disable it, edit gooey/gui/util/taskkill.py
         process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
+        logger.info(" ".join(cmd))
         return process.communicate(timeout=10)[0]
 
     def adb_shell(self, cmd, serial=None):
@@ -81,8 +82,8 @@ class Connection:
             if msg.startswith('unable'):
                 logger.error('Unable to connect %s' % serial)
                 exit(1)
-            else:
-                logger.info(msg.strip())
+            # else:
+            #     logger.info(msg.strip())
 
     def connect(self, serial):
         """Connect to a device.

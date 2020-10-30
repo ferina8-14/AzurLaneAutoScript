@@ -71,14 +71,14 @@ class AzurLaneAutoScript:
         from module.reward.reward import Reward
         az = Reward(self.config, device=self.device)
         az.reward_loop()
-        self.update_check()
+        # self.update_check()
 
     def setting(self):
         for key, value in self.config.config['Setting'].items():
             print(f'{key} = {value}')
 
         logger.hr('Settings saved')
-        self.update_check()
+        # self.update_check()
         self.config.config_check()
 
     def update_check(self):
@@ -92,7 +92,7 @@ class AzurLaneAutoScript:
             print(f'{key} = {value}')
 
         logger.hr('Reward Settings saved')
-        self.update_check()
+        # self.update_check()
         self.reward_when_finished()
 
     def emulator(self):
@@ -103,7 +103,7 @@ class AzurLaneAutoScript:
                 print(f'{key} = {value}')
 
         logger.hr('Emulator saved')
-        self.update_check()
+        # self.update_check()
         from module.handler.login import LoginHandler
         az = LoginHandler(self.config, device=self.device)
         if az.app_ensure_start():
