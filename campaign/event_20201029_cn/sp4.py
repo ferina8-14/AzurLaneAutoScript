@@ -1,4 +1,4 @@
-from module.campaign.campaign_base import CampaignBase
+from .campaign_base import CampaignBase
 from module.map.map_base import CampaignMap
 from module.map.map_grids import SelectedGrids, RoadGrids
 from module.logger import logger
@@ -6,8 +6,9 @@ from .sp1 import Config as ConfigBase
 
 MAP = CampaignMap('SP4')
 MAP.shape = 'I7'
-MAP.camera_data = ['D2', 'D5', 'F2', 'F5']
+MAP.camera_data = ['C2', 'C5', 'F2', 'F5']
 MAP.camera_data_spawn_point = ['D2']
+MAP.camera_sight = (-2, -1, 3, 2)
 MAP.map_data = """
     ++ -- SP -- ++ MS ++ ++ --
     ++ SP -- ME -- -- Me ++ --

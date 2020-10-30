@@ -1,4 +1,4 @@
-from module.campaign.campaign_base import CampaignBase
+from .campaign_base import CampaignBase
 from module.map.map_base import CampaignMap
 from module.map.map_grids import SelectedGrids, RoadGrids
 from module.logger import logger
@@ -7,6 +7,7 @@ MAP = CampaignMap('SP')
 MAP.shape = 'G8'
 MAP.camera_data = ['D2', 'D6']
 MAP.camera_data_spawn_point = ['D6']
+MAP.camera_sight = (-2, -1, 3, 2)
 MAP.map_data = """
     -- -- ++ ++ ++ -- --
     -- -- -- -- -- -- --
